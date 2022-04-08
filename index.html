@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>ToDoList</title>
+</head>
+
+<body>
+    <div id="root">
+        <div class="container">
+            <div class="todolist">
+                <h2>TASKS TO DO <i class="fa-solid fa-pen"></i></h2>
+                <ul>
+                    <li v-for="(item, index) in list" :class="{'line-through': item.done}">
+                        <span class="text" @click="taskClicked(index)">{{item.text}}</span>
+                        <span class="cross" @click="deleteTask(index)"><i class="fa-regular fa-circle-xmark"></i></span>
+                    </li>
+                </ul>
+                <div class="input-container">
+                    <input type="text" placeholder="Insert new task" v-model="newTask">
+                    <button @click="addNewTask()">Add new task</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
